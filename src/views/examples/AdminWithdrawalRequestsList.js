@@ -35,7 +35,7 @@ const AdminWithdrawalRequests = () => {
         <title>List All Users</title>
       </Helmet>
       <Jumbotron className='container-fluid bg-gradient-info' />
-    
+
       <br></br>
       {loading ? (
         <Loader />
@@ -74,7 +74,7 @@ const AdminWithdrawalRequests = () => {
                 <td>{user.date}</td>
                 <td>
                   <Link
-                    to={`/dashboard/admin/user/${user._id}/edit/withdrawaldetails`}
+                    to={`/dashboard/withdrawaldetail/edit/${user._id}`}
                   >
                     <Button variant='' className='btn-sm bg-success mx-3'>
                       <i className='fas fa-edit'></i>

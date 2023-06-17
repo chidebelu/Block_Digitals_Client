@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownItem,
@@ -16,6 +16,7 @@ import { useContext, useEffect } from 'react';
 const AdminNavbar = (props) => {
   const context = useContext(authContext);
   const { user, logout, loaduser } = context;
+  const location = useLocation()
 
   useEffect(() => {
     if (!user?._id) loaduser();
@@ -25,13 +26,15 @@ const AdminNavbar = (props) => {
     logout();
   };
 
+  console.log(props)
+
   const adminNav = (
     <>
       <Navbar className='navbar-top navbar-dark' expand='md' id='navbar-main'>
         <Container fluid>
           <Link
             className='h4 mb-0 text-white text-uppercase d-none d-lg-inline-block'
-            to='/'
+            to={location.pathname}
           >
             {props.brandText}
           </Link>

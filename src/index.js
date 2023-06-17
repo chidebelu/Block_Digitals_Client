@@ -35,39 +35,78 @@ import App from "./App"
 
 ReactDOM.render(
   <HelmetProvider>
-  <Router>
-  <AuthState>
-    <App/>
-    <AlertState>
-    <Switch>
-      <Route path="/" exact component={Home}/>
-      <Route path="/register" exact component={Register}/>
-      <Route path="/signin" exact component={Signin}/>
-      <Route path="/forgotpassword" exact component={ForgotPassword}/>
-      <PrivateRoute path="/dashboard/bitcoinpage" exact component={BitcoinPage}/>
-      <PrivateRoute path="/dashboard/ethereumpage" exact component={EthereumPage}/>
-      <PrivateRoute path="/dashboard/usdtpage" exact component={UsdtPage}/>
-      <PrivateRoute path="/dashboard/bnbpage" exact component={BnbPage}/>
-      <PrivateRoute path="/dashboard/paidpage" exact component={PaidPage}/>
-      <Route path="/withdrawals" exact component={PaidOut}/>
-      <Route path="/aboutus" exact component={About}/>
-      <Route path="/support" exact component={Support}/>
-      <Route path="/faq" exact component={FAQ}/>
-      <Route path="/resetpassword" exact component={ResetPassword}/>
-      <PrivateRoute path="/dashboard/admin/listusers" exact component={ListUsers}/>
-      <PrivateRoute path="/dashboard/admin/alldepositlist" exact component={AllUsersDeposit}/>
-      <PrivateRoute path="/dashboard/admin/user/:id/edit" exact component={UserEdit}/>
-      <PrivateRoute path="/dashboard/admin/listwithdrawalrequests" exact component={AdminWithdrawalRequests}/>
-      <PrivateRoute path="/dashboard/admin/user/:id/edit/withdrawaldetails" exact component={AdminWithdrawalEdit}/>
-      
-      <PrivateRoute path="/dashboard/choosepayment" exact component={ChoosePayment}/>
-     <PrivateRoute path="/dashboard" component={AdminLayout} />
-      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-  
-    </Switch>
-    </AlertState>
-    </AuthState>
-  </Router>
-    </HelmetProvider>,
-  document.getElementById("root")
+    <Router>
+      <AuthState>
+        <App />
+        <AlertState>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/register' exact component={Register} />
+            <Route path='/signin' exact component={Signin} />
+            <Route path='/forgotpassword' exact component={ForgotPassword} />
+            <PrivateRoute
+              path='/dashboard/bitcoinpage'
+              exact
+              component={BitcoinPage}
+            />
+            <PrivateRoute
+              path='/dashboard/ethereumpage'
+              exact
+              component={EthereumPage}
+            />
+            <PrivateRoute
+              path='/dashboard/usdtpage'
+              exact
+              component={UsdtPage}
+            />
+            <PrivateRoute path='/dashboard/bnbpage' exact component={BnbPage} />
+            <PrivateRoute
+              path='/dashboard/paidpage'
+              exact
+              component={PaidPage}
+            />
+            <Route path='/withdrawals' exact component={PaidOut} />
+            <Route path='/aboutus' exact component={About} />
+            <Route path='/support' exact component={Support} />
+            <Route path='/faq' exact component={FAQ} />
+            <Route path='/resetpassword' exact component={ResetPassword} />
+            <PrivateRoute
+              path='/dashboard/admin/listusers'
+              exact
+              component={ListUsers}
+            />
+            <PrivateRoute
+              path='/dashboard/admin/alldepositlist'
+              exact
+              component={AllUsersDeposit}
+            />
+            <PrivateRoute
+              path='/dashboard/admin/user/:id/edit'
+              exact
+              component={UserEdit}
+            />
+            <PrivateRoute
+              path='/dashboard/admin/listwithdrawalrequests'
+              exact
+              component={AdminWithdrawalRequests}
+            />
+            <PrivateRoute
+              path='/dashboard/withdrawaldetail/edit/:id'
+              exact
+              component={AdminWithdrawalEdit}
+            />
+
+            <PrivateRoute
+              path='/dashboard/choosepayment'
+              exact
+              component={ChoosePayment}
+            />
+            <PrivateRoute path='/dashboard' component={AdminLayout} />
+            <Route path='/auth' render={(props) => <AuthLayout {...props} />} />
+          </Switch>
+        </AlertState>
+      </AuthState>
+    </Router>
+  </HelmetProvider>,
+  document.getElementById('root')
 );

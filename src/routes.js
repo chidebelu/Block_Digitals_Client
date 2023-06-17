@@ -107,4 +107,18 @@ var routes = [
   //   layout: "/dashboard",
   // },
 ];
+
+export const ChildRoutes = [
+  {
+    path: '/withdrawaldetail/edit/__ID__',
+    name: 'Edit Withdrawaldetail',
+    icon: 'fas fa-user',
+    component: AllDepositsList,
+    layout: '/dashboard',
+    type: 'admin',
+  },
+];
+
+export const WITHDRAWAL_ID_PLACEHOLDER = '__ID__';
+
 export default routes;
