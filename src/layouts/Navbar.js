@@ -41,9 +41,9 @@ const Navba = () => {
               Contact Us
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to='#' style={{ color: 'white' }}>
+            <Nav.Link as={NavLink} to='/dashboard' style={{ color: 'white' }}>
               <strong>
-                <em>Welcome {user.firstname}</em>
+                <em>Welcome! {user.firstname}</em>
               </strong>{' '}
             </Nav.Link>
           </Nav>
