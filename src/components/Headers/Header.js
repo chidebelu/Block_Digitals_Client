@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import authContext from "../context/auth/authContext"
+import {useLocation} from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
   const context = useContext(authContext)
   const {user} = context
+  const location = useLocation()
+  const pathname = location.pathname;
+
   return (
     <>
       <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">

@@ -1,10 +1,10 @@
-import React from "react";
-import { useLocation, Route, Switch, Redirect } from "react-router-dom";
-import { Container } from "reactstrap";
-import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import AdminFooter from "components/Footers/AdminFooter.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-import routes from "routes.js";
+import React from 'react';
+import { useLocation, Route, Switch, Redirect } from 'react-router-dom';
+import { Container } from 'reactstrap';
+import AdminNavbar from 'components/Navbars/AdminNavbar.js';
+import AdminFooter from 'components/Footers/AdminFooter.js';
+import Sidebar from 'components/Sidebar/Sidebar.js';
+import routes from 'routes.js';
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
@@ -18,7 +18,7 @@ const Admin = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/dashboard") {
+      if (prop.layout === '/dashboard') {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -41,28 +41,32 @@ const Admin = (props) => {
         return routes[i].name;
       }
     }
-    return "Brand";
+    return 'Brand';
   };
+
+  const adminRoute = routes.filter(
+    (route) => route.type === 'admin' || route.type === 'both'
+  );
 
   return (
     <>
       <Sidebar
         {...props}
-        routes={routes}
+        routes={adminRoute}
         logo={{
-          innerLink: "/dashboard/dashboard",
-          imgSrc: require("../assets/img/brand/argon-react.png").default,
-          imgAlt: "...",
+          innerLink: '/dashboard/dashboard',
+          imgSrc: require('../assets/img/brand/argon-react.png').default,
+          imgAlt: '...',
         }}
       />
-      <div className="main-content" ref={mainContent}>
+      <div className='main-content' ref={mainContent}>
         <AdminNavbar
           {...props}
           brandText={getBrandText(props.location.pathname)}
         />
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/dashboard/dashboard" />
+          <Redirect from='*' to='/dashboard/dashboard' />
         </Switch>
         <Container fluid>
           <AdminFooter />

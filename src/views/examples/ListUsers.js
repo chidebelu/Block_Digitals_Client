@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navbar from "layouts/Navbar";
 import { Helmet } from "react-helmet-async";
 import Message from "layouts/Message";
+import { Jumbotron } from 'reactstrap';
 
 const UserList = () => {
   const context = useContext(authContext);
@@ -29,30 +30,24 @@ const UserList = () => {
   };
 
   return (
-    <>
+    <div div className='bg-white min-vh-100'>
       <Helmet>
         <title>List All Users</title>
       </Helmet>
-      <Navbar />
-      <div className="col-xs-12 col-md-12 col-lg-12">
-        <div className="row">
-          <div className=" col-lg-6">
-            {" "}
-            <h1 style={{ textAlign: "center" }} className="mt-1 ">
-              List of all Registered Users
-            </h1>{" "}
-          </div>
+      <Jumbotron className='container-fluid bg-gradient-info' />
+      <div className='col-xs-12 col-md-12 col-lg-12'>
+        <div className='row'>
           <div className=" col-lg-6'">
             <input
               onChange={onChange}
-              type="text"
-              name="search"
-              placeholder="Search"
-              className="form-control mb-3"
-              style={{ width: "250%" }}
+              type='text'
+              name='search'
+              placeholder='Search'
+              className='form-control mb-3'
+              style={{ width: '250%' }}
             />
           </div>
-        </div>{" "}
+        </div>{' '}
       </div>
       {loading ? (
         <Loader />
@@ -64,8 +59,8 @@ const UserList = () => {
           bordered
           hover
           responsive
-          className="table-sm"
-          variant="dark"
+          className='table-sm'
+          variant='dark'
         >
           <thead>
             <tr>
@@ -90,25 +85,25 @@ const UserList = () => {
                   <td>
                     {user.isAdmin ? (
                       <i
-                        className="fas fa-check"
-                        style={{ color: "green" }}
+                        className='fas fa-check'
+                        style={{ color: 'green' }}
                       ></i>
                     ) : (
-                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                      <i className='fas fa-times' style={{ color: 'red' }}></i>
                     )}
                   </td>
                   <td>
                     <Link to={`/dashboard/admin/user/${user._id}/edit`}>
-                      <Button variant="" className="btn-sm bg-success mx-3">
-                        <i className="fas fa-edit"></i>
+                      <Button variant='' className='btn-sm bg-success mx-3'>
+                        <i className='fas fa-edit'></i>
                       </Button>
                     </Link>
                     <Button
-                      variant="danger"
-                      className="btn-sm bg-danger"
+                      variant='danger'
+                      className='btn-sm bg-danger'
                       onClick={() => deleteHandler(user._id)}
                     >
-                      <i className="fas fa-trash"></i>
+                      <i className='fas fa-trash'></i>
                     </Button>
                   </td>
                 </tr>
@@ -116,7 +111,7 @@ const UserList = () => {
           </tbody>
         </Table>
       )}
-    </>
+    </div>
   );
 };
 
