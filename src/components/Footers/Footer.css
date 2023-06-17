@@ -1,0 +1,30 @@
+.socialConnect{
+    background: #ddd;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.socialConnect .socialLink{
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #dddd;
+    margin: 0 2px;
+    transition: transform .2s ease-out, box-shadow .2s ease-out;
+}
+.socialConnect .socialLink img{
+    width: 100%;
+    height: 100%;
+}
+
+.socialConnect .socialLink:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 0 #777;
+}
+footer{
+    background-color: #ddd !important;
+}
