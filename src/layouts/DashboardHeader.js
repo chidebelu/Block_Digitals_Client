@@ -8,7 +8,7 @@ const DashboardHeader = () =>{
 const context = useContext(authContext)
 const {logout, user, loaduser} = context
 useEffect(()=>{
-  loaduser()
+  if (!user?._id) loaduser();
 })
 const logoutHandler = (e) =>{
   logout()

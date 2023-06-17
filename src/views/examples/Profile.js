@@ -31,13 +31,14 @@ const Profile = () => {
       
       }
       //eslint-disable-next-line
- },[user.firstname])
+ },[user?.firstname])
  
  
   useEffect(()=>{
-      loaduser()
+      if (!user?._id) loaduser();
       //eslint-disable-next-line
   },[])
+  
   useEffect(()=>{
       if(error){
           setAlert(error, "alert", 3000)

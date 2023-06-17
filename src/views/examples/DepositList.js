@@ -12,8 +12,8 @@ const DepositList = () => {
  const {userInvest, getInvest, user, loaduser, deleteInvestment, allusers} = context
   const count = useRef(0)
  useEffect(()=>{
-  loaduser()
-},[loaduser])
+  if (!user?._id) loaduser();
+},[])
 
 
 

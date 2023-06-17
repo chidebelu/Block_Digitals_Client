@@ -14,9 +14,9 @@ const AdminWithdrawalEdit = () => {
  const count = useRef(0)
 
   useEffect(()=>{
-    loaduser()
+    if (!user?._id) loaduser();
   //eslint-disable-next-line
-  },[loaduser])
+  },[])
 
   const initialState = {
     firstname: "",
