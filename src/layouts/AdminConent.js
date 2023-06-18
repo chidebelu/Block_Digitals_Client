@@ -16,23 +16,9 @@ const AdminContent = (props) => {
     mainContent.current.scrollTop = 0;
   }, [location]);
 
-  const getBrandText = (path) => {
-    for (let i = 0; i < routes.length; i++) {
-      if (
-        location?.pathname.indexOf(routes[i].layout + routes[i].path) !==
-        -1
-      ) {
-        return routes[i].name;
-      }
-    }
-    return 'Brand';
-  };
-
   const adminRoute = routes.filter(
     (route) => route.type === 'admin' || route.type === 'both'
   );
-
-  console.log(location)
 
   return (
     <>
@@ -48,7 +34,7 @@ const AdminContent = (props) => {
       <div className='main-content' ref={mainContent}>
         <AdminNavbar
           {...props}
-          brandText={getBrandText(location.pathname)}
+          brandText={props.brandText}
         />
         <div className='bg-white min-vh-100'>
           <Jumbotron className='container-fluid bg-gradient-info' />

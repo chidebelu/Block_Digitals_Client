@@ -71,7 +71,7 @@ const AdminWithdrawalEdit = () => {
   };
 
   return (
-    <AdminContent>
+    <AdminContent brandText='Edit Withdrawal Request'>
       <Container className='mt--7' fluid>
         <Row>
           <div className='col-xs-12 col-md-12 col-lg-9 center'>
